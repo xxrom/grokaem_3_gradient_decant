@@ -3,7 +3,7 @@ weight = 2
 alpha = 0.9
 pred_goal = 0.234
 
-
+# learning =)
 for iteration in range(40):
   pred = input * weight
   # cube error (for measurement)
