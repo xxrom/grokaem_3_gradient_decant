@@ -1,9 +1,12 @@
 weight = 0.5
 goal_pred = 0.8
 input = 2
+alpha = 1
 
-for interation in range(20):
-  pred = input * weight
+# Discrepancy effect (error getting bigger and bigger)
+for interation in range(100):
+
+  pred = input * weight * alpha
   error = (pred - goal_pred) ** 2
   delta = pred - goal_pred
 
@@ -12,4 +15,6 @@ for interation in range(20):
   # Minus because derivative show opposite direction
   weight = weight - weight_delta
 
-  print('error:  %.04f, prediction: %.04f, delta: %.04f'%(error, pred, delta))
+  alpha = alpha * 0.9
+
+  print('error:  %.04f, prediction: %.04f, delta: %.04f, alpha; %.04f'%(error, pred, delta, alpha))
